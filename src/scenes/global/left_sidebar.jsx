@@ -1,12 +1,11 @@
 import React from 'react'
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { BottomNavigation, Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeIcon from '@mui/icons-material/Home';
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -38,7 +37,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Left_sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isLeftSideBarCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
@@ -61,46 +60,12 @@ const Left_sidebar = () => {
         },
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
+      <ProSidebar collapsed={isLeftSideBarCollapsed}>
         <Menu iconShape="square"
-          onMouseEnter={() => setIsCollapsed(true)}
-          onMouseLeave={() => setIsCollapsed(false)}
+          onMouseEnter={() => setIsCollapsed(!isLeftSideBarCollapsed)}
+          onMouseLeave={() => setIsCollapsed(!isLeftSideBarCollapsed)}
         >
-          {/* LOGO AND MENU ICON */}
-          {/* <MenuItem
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            icon={isCollapsed ? <AccountCircleIcon /> : undefined}
-            style={{
-              margin: "5px 0 5px 0",
-              color: colors.grey[100],
-            }}
-          >
-            {!isCollapsed && (
-              <Box
-                display="flex"
-                justifyContent="flex-start"
-                alignItems="center"
-                ml="0px"
-              >
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <AccountCircleIcon />
-                </IconButton>
-                <Typography variant="h4" color={colors.grey[100]} ml="5px">
-                  Username
-                </Typography>
-                
-              </Box>
-            )}
-          </MenuItem> */}
           
-          {/* <Box paddingLeft={isCollapsed ? undefined : "10%"}> */}
-            {/* <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Pages
-            </Typography> */}
             <Item
               title="Username"
               to="/"
