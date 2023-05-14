@@ -16,19 +16,20 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 import Divider from '@mui/material/Divider';
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+const LeftSidebarMenuItem = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  
   return (
     <MenuItem
       active={selected === title}
       style={{
         color: colors.grey[100],
       }}
-      onClick={() => setSelected(title)}
+      // onClick={() => setSelected(title)}
       icon={icon}
     >
-      <Typography>{title}</Typography>
+      <Typography className='lsidebartext'>{title}</Typography>
       <Link to={to} />
     </MenuItem>
   );
@@ -60,13 +61,13 @@ const Left_sidebar = () => {
         },
       }}
     >
-      <ProSidebar collapsed={isLeftSideBarCollapsed}>
+      <ProSidebar width="12vw" collapsed={isLeftSideBarCollapsed}>
         <Menu iconShape="square"
           onMouseEnter={() => setIsCollapsed(!isLeftSideBarCollapsed)}
           onMouseLeave={() => setIsCollapsed(!isLeftSideBarCollapsed)}
         >
           
-            <Item
+            <LeftSidebarMenuItem
               title="Username"
               to="/"
               icon={<AccountCircleIcon />}
@@ -74,28 +75,28 @@ const Left_sidebar = () => {
               setSelected={setSelected}
             />
             <Divider variant="middle" sx={{ backgroundColor: colors.primary[300] }}/>
-            <Item
+            <LeftSidebarMenuItem
               title="Dashboard"
               to="/"
               icon={<HomeIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <LeftSidebarMenuItem
               title="Tweet"
               to="/tweet"
               icon={<TwitterIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <LeftSidebarMenuItem
               title="Profile"
               to="/twitter_profile"
               icon={<AlternateEmailIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <LeftSidebarMenuItem
               title="Hashtag"
               to="/hashtag"
               icon={<TagIcon />}
@@ -110,14 +111,14 @@ const Left_sidebar = () => {
               Tools
             </Typography> */}
             <Divider variant="middle" sx={{ backgroundColor: colors.primary[300] }}/>
-            <Item
+            <LeftSidebarMenuItem
               title="Screener"
               to="/screener"
               icon={<TroubleshootIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
+            <LeftSidebarMenuItem
               title="Reports"
               to="/reports"
               icon={<AssessmentIcon />}
@@ -125,14 +126,14 @@ const Left_sidebar = () => {
               setSelected={setSelected}
             />
             <Divider variant="middle" sx={{ backgroundColor: colors.primary[300] }}/>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', flexDirection: 'column'}}>
-              <Item
+            <Box sx= {{position:'absolute', bottom:'0'}}>
+              <LeftSidebarMenuItem
                 title="Logout"
                 to="/Dashboard"
                 icon={<LogoutIcon />}
                 selected={selected}
                 setSelected={setSelected}
-                sx= {{position:'absolute', bottom:'0'}}
+                
               />
             </Box>
           {/* </Box> */}

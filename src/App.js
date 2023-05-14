@@ -5,18 +5,7 @@ import Left_sidebar from "./scenes/global/left_sidebar";
 import { Box, Container, CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Right_sidebar from "./scenes/global/right_sidebar";
-import {
-  TwitterTimelineEmbed,
-  TwitterShareButton,
-  TwitterFollowButton,
-  TwitterHashtagButton,
-  TwitterMentionButton,
-  TwitterTweetEmbed,
-  TwitterMomentShare,
-  TwitterDMButton,
-  TwitterVideoEmbed,
-  TwitterOnAirButton,
-} from "react-twitter-embed";
+
 
 import mainContentScroll from "./scenes/global/mainContentScroll";
 
@@ -37,59 +26,26 @@ function App() {
               justifyContent: "space-between",
             }}
           >
-            <Left_sidebar
-              sx={{ height: "100vh", width: "10%", backgroundColor: "white" }}
+            <Left_sidebar 
+              sx={{ height: "100vh", width: "10vw", backgroundColor: "white" }}
               setIsSidebar={isSidebar}
             ></Left_sidebar>
             <Box
               sx={{
                 height: "100vh",
-                width: "80%",
-                flex: 1
+                width: "80vw",
+                flex: 1,
               }}
             >
               <main className="content">
                 <Topbar setIsSidebar={isSidebar} />
-                {/* <div className="centerContent">
-              <div className="selfCenter spaceBetween">
-                <TwitterTweetEmbed
-                  onLoad={function noRefCheck() {}}
-                  tweetId="933354946111705097"
-                />
-              </div>
-            </div> */}
-                {/* <Box
-                  sx={{
-                    p: 2,
-                    flex: 1,
-                    overflowX: "hidden",
-                    overflowY: "scroll",
-                    maxHeight: "75%",
-                  }}
-                >
-                  <TwitterTimelineEmbed
-                    onLoad={function noRefCheck() {}}
-                    options={{ maxWidth: "600" }}
-                    theme="dark"
-                    sourceType="profile"
-                    userId="1120431456109715457"
-                  />
-                  <div className="centerContent">
-                    <div className="selfCenter spaceBetween">
-                      <TwitterTweetEmbed
-                        onLoad={function noRefCheck() {}}
-                        tweetId="1083592734038929408"
-                      />
-                    </div>
-                  </div>
-                </Box> */}
-
                 <Routes></Routes>
               </main>
             </Box>
             <Right_sidebar
-              sx={{ height: "100vh", width: "10%", backgroundColor: "white" }}
+              sx={{ height: "100vh", width: "10vw", backgroundColor: "white" }}
             ></Right_sidebar>
+            
           </Box>
         </div>
       </ThemeProvider>

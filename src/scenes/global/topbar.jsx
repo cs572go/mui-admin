@@ -1,19 +1,16 @@
-import { Box, Grow, IconButton, useTheme } from "@mui/material";
-import { useContext } from "react";
-import { ColorModeContext, tokens } from "../../theme";
+import { Box, IconButton, useTheme } from "@mui/material";
+import { tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { Directions } from "@mui/icons-material";
 import React from "react";
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const colorMode = useContext(ColorModeContext);
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
-      {/* SEARCH BAR */}
+      {/* Top Search Bar*/}
       <Box
         display="flex"
         backgroundColor={colors.primary[400]}
