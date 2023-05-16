@@ -67,10 +67,9 @@ const Right_sidebar = () => {
     >
       <ProSidebar rtl collapsed={isRightSideBarCollapsed}>
         <Menu iconShape="square">
-          
           <Box
             sx={{
-              m: '10px 20px 10px 10px',
+              m: "10px 20px 10px 10px",
               color: colors.grey[100],
             }}
           >
@@ -79,7 +78,7 @@ const Right_sidebar = () => {
             >
               <DvrIcon />
             </IconButton>
-            
+
             {/* {!isRightSideBarCollapsed && (
               <Box
                 sx={{

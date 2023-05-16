@@ -2,15 +2,17 @@ html,
 body,
 #root,
 .app,
-.content{
+.content {
   height: 100%;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.app{
+.app {
   display: flex;
   position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -21,15 +23,18 @@ body,
   background: #e0e0e0;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background: #888888;
 }
 
-::-webkit-scrollbar-track:hover{
+::-webkit-scrollbar-track:hover {
   background: #555555;
 }
 
-.collapsed .lsidebartext
-{
+.collapsed .lsidebartext {
   display: none;
+}
+
+.content {
+  overflow-y: scroll;
 }

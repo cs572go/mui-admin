@@ -1,25 +1,25 @@
-import React from 'react'
+import React from "react";
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
-import HomeIcon from '@mui/icons-material/Home';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import TagIcon from '@mui/icons-material/Tag';
-import TroubleshootIcon from '@mui/icons-material/Troubleshoot';
-import AssessmentIcon from '@mui/icons-material/Assessment';
-import LogoutIcon from '@mui/icons-material/Logout';
+import HomeIcon from "@mui/icons-material/Home";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import TagIcon from "@mui/icons-material/Tag";
+import TroubleshootIcon from "@mui/icons-material/Troubleshoot";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import LogoutIcon from "@mui/icons-material/Logout";
 
-import Divider from '@mui/material/Divider';
+import Divider from "@mui/material/Divider";
 
 const LeftSidebarMenuItem = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  
+
   return (
     <MenuItem
       active={selected === title}
@@ -29,7 +29,7 @@ const LeftSidebarMenuItem = ({ title, to, icon, selected, setSelected }) => {
       // onClick={() => setSelected(title)}
       icon={icon}
     >
-      <Typography className='lsidebartext'>{title}</Typography>
+      <Typography className="lsidebartext">{title}</Typography>
       <Link to={to} />
     </MenuItem>
   );
@@ -62,80 +62,88 @@ const Left_sidebar = () => {
       }}
     >
       <ProSidebar width="12vw" collapsed={isLeftSideBarCollapsed}>
-        <Menu iconShape="square"
+        <Menu
+          iconShape="square"
           onMouseEnter={() => setIsCollapsed(!isLeftSideBarCollapsed)}
           onMouseLeave={() => setIsCollapsed(!isLeftSideBarCollapsed)}
         >
-          
-            <LeftSidebarMenuItem
-              title="Username"
-              to="/"
-              icon={<AccountCircleIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Divider variant="middle" sx={{ backgroundColor: colors.primary[300] }}/>
-            <LeftSidebarMenuItem
-              title="Dashboard"
-              to="/"
-              icon={<HomeIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <LeftSidebarMenuItem
-              title="Tweet"
-              to="/tweet"
-              icon={<TwitterIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <LeftSidebarMenuItem
-              title="Profile"
-              to="/twitter_profile"
-              icon={<AlternateEmailIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <LeftSidebarMenuItem
-              title="Hashtag"
-              to="/hashtag"
-              icon={<TagIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            {/* <Typography
+          <LeftSidebarMenuItem
+            title="Tushar"
+            to="/"
+            icon={<AccountCircleIcon />}
+            selected={selected}
+            setSelected={setSelected}
+          />
+          <Divider
+            variant="middle"
+            sx={{ backgroundColor: colors.primary[300] }}
+          />
+          <LeftSidebarMenuItem
+            title="Dashboard"
+            to="/"
+            icon={<HomeIcon />}
+            selected={selected}
+            setSelected={setSelected}
+          />
+          <LeftSidebarMenuItem
+            title="Tweet"
+            to="/tweet"
+            icon={<TwitterIcon />}
+            selected={selected}
+            setSelected={setSelected}
+          />
+          <LeftSidebarMenuItem
+            title="Profile"
+            to="/twitter_profile"
+            icon={<AlternateEmailIcon />}
+            selected={selected}
+            setSelected={setSelected}
+          />
+          <LeftSidebarMenuItem
+            title="Hashtag"
+            to="/hashtag"
+            icon={<TagIcon />}
+            selected={selected}
+            setSelected={setSelected}
+          />
+          {/* <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Tools
             </Typography> */}
-            <Divider variant="middle" sx={{ backgroundColor: colors.primary[300] }}/>
+          <Divider
+            variant="middle"
+            sx={{ backgroundColor: colors.primary[300] }}
+          />
+          <LeftSidebarMenuItem
+            title="Screener"
+            to="/screener"
+            icon={<TroubleshootIcon />}
+            selected={selected}
+            setSelected={setSelected}
+          />
+          <LeftSidebarMenuItem
+            title="Reports"
+            to="/reports"
+            icon={<AssessmentIcon />}
+            selected={selected}
+            setSelected={setSelected}
+          />
+          <Divider
+            variant="middle"
+            sx={{ backgroundColor: colors.primary[300] }}
+          />
+          <Box sx={{ position: "absolute", bottom: "0" }}>
             <LeftSidebarMenuItem
-              title="Screener"
-              to="/screener"
-              icon={<TroubleshootIcon />}
+              title="Logout"
+              to="/Dashboard"
+              icon={<LogoutIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <LeftSidebarMenuItem
-              title="Reports"
-              to="/reports"
-              icon={<AssessmentIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Divider variant="middle" sx={{ backgroundColor: colors.primary[300] }}/>
-            <Box sx= {{position:'absolute', bottom:'0'}}>
-              <LeftSidebarMenuItem
-                title="Logout"
-                to="/Dashboard"
-                icon={<LogoutIcon />}
-                selected={selected}
-                setSelected={setSelected}
-                
-              />
-            </Box>
+          </Box>
           {/* </Box> */}
         </Menu>
       </ProSidebar>
@@ -143,4 +151,4 @@ const Left_sidebar = () => {
   );
 };
 
-export default Left_sidebar
+export default Left_sidebar;

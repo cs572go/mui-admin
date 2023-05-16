@@ -15,14 +15,16 @@ const Topbar = () => {
         display="flex"
         backgroundColor={colors.primary[400]}
         borderRadius="10px"
-        sx={{flex: 1}}
+        sx={{ flex: 1 }}
       >
-        <InputBase sx={{ ml: 1, flex: 1}} placeholder="Search #, @ or a topic" />
+        <InputBase
+          sx={{ ml: 1, flex: 1 }}
+          placeholder="Search #, @ or a topic"
+        />
         <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />
         </IconButton>
       </Box>
-
     </Box>
   );
 };

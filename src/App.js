@@ -5,9 +5,14 @@ import Left_sidebar from "./scenes/global/left_sidebar";
 import { Box, Container, CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Right_sidebar from "./scenes/global/right_sidebar";
-
-
+import { TwitterTweetEmbed, TwitterTimelineEmbed } from "react-twitter-embed";
 import mainContentScroll from "./scenes/global/mainContentScroll";
+import Dashboard from "./scenes/dashboard";
+import Hashtags from "./scenes/hashtag";
+import Tweets from "./scenes/tweets";
+import Twitter_Profiles from "./scenes/twitter_profile";
+import Reports from "./scenes/reports";
+import Screener from "./scenes/screener";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -26,7 +31,7 @@ function App() {
               justifyContent: "space-between",
             }}
           >
-            <Left_sidebar 
+            <Left_sidebar
               sx={{ height: "100vh", width: "10vw", backgroundColor: "white" }}
               setIsSidebar={isSidebar}
             ></Left_sidebar>
@@ -37,15 +42,23 @@ function App() {
                 flex: 1,
               }}
             >
+              <Topbar setIsSidebar={isSidebar} />
               <main className="content">
-                <Topbar setIsSidebar={isSidebar} />
-                <Routes></Routes>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/tweet" element={<Tweets />} />
+                  <Route path="/hashtag" element={<Hashtags />} />
+                  <Route path="/twitter_profile" element={<Twitter_Profiles />} />
+                  <Route path="/screener" element={<Screener />} />
+                  <Route path="/reports" element={<Reports />} />
+                  
+                  
+                </Routes>
               </main>
             </Box>
             <Right_sidebar
               sx={{ height: "100vh", width: "10vw", backgroundColor: "white" }}
             ></Right_sidebar>
-            
           </Box>
         </div>
       </ThemeProvider>
