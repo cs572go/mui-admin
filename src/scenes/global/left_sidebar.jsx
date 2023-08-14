@@ -26,7 +26,7 @@ const LeftSidebarMenuItem = ({ title, to, icon, selected, setSelected }) => {
       style={{
         color: colors.grey[100],
       }}
-      // onClick={() => setSelected(title)}
+      onClick={() => setSelected(title)}
       icon={icon}
     >
       <Typography className="lsidebartext">{title}</Typography>
@@ -88,7 +88,7 @@ const Left_sidebar = () => {
           <LeftSidebarMenuItem
             title="Tweet"
             to="/tweet"
-            icon={<TwitterIcon />}
+            icon={<TwitterIcon />}  
             selected={selected}
             setSelected={setSelected}
           />

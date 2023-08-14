@@ -1,32 +1,59 @@
-import React from 'react'
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import React from "react";
+import {  Box,  Button, IconButton,  Typography,  useTheme,} from "@mui/material";
 import { tokens } from "../../theme";
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 const Twitter_Profiles = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  // const botAnalysis = botAnalysis();
+  // const threatAnalysis = threatAnalysis();
+  // const addToWatchlist = addToWatchlist();
+  // const reportProfile = reportProfile();
   return (
-    <Box sx={{p:2}}>
-      
-      <Box sx={{display:"flex", alignItems:"center", textAlign:"center" }}>
-                  {/* <TwitterTweetEmbed
-                    onLoad={function noRefCheck() {}}
-                    tweetId="933354946111705097"
-                  /> */}
-
-                  <TwitterTimelineEmbed
-                    onLoad={function noRefCheck() {}}
-                    options={{
-                      height: 400,
-                      width: 400,
-                    }}
-                    screenName="SCRise_"
-                    sourceType="profile"
-                    theme="dark"
-                    
-                  />
+    <Box sx={{ p: 2 }}>
+      <Typography></Typography>
+      <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
+        <TwitterTimelineEmbed
+          onLoad={function noRefCheck() {}}
+          options={{
+            height: 400,
+            width: 1000,
+          }}
+          screenName="asadowaisi"
+          sourceType="profile"
+          theme="dark"
+        />
       </Box>
-    </Box>
-  )
-}
+      
+        <Box box spacing={4} sx={{marginTop:'20px'}}>
+          <Button variant="outlined" color="secondary"
+            // onClick={()=>botAnalysis()}
+            >
+            Bot Analysis
+          </Button>
 
-export default Twitter_Profiles
+          <Button variant="outlined" color="secondary"
+            // onClick={()=>threatAnalysis()}
+            >
+            Threat Analysis
+          </Button>
+
+          <Button variant="outlined" color="secondary"
+            // onClick={()=>addToWatchlist()}
+            >
+            Add to Watchlist
+          </Button>
+
+          <Button variant="outlined" color="secondary"
+            // onClick={()=>reportProfile()}
+            >
+            Report
+          </Button>
+        </Box>
+      
+    </Box>
+  );
+};
+
+export default Twitter_Profiles;

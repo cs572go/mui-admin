@@ -6,12 +6,7 @@ const Reports = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
-    <Box sx={{p:2}}>
-      
-      <Box sx={{display:"flex", alignItems:"center", textAlign:"center" }}>
-
-      </Box>
-    </Box>
+    <Box>Reports</Box>
   )
 }
 
